@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>New Event Notification</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="color-scheme" content="light dark">
+  <meta name="supported-color-schemes" content="light dark">
+  <style>
+    /* General styles */
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100% !important;
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+      background-color: #f2f2f7; /* Фон всей страницы */
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      font-size: 16px;
+      line-height: 1.6;
+      color: #1d1d1f;
+    }
+
+    /* Container styles */
+    .container {
+      background-color: #ffffff;
+      border-radius: 12px;
+      max-width: 600px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    /* Header styles */
+    .header-cell {
+      background-color: #1c1c1e;
+      height: 160px;
+      font-size: 0;
+      line-height: 0;
+      padding: 0;
+    }
+    .header-cell img {
+      display: block;
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      border: 0;
+      outline: none;
+      text-decoration: none;
+      -ms-interpolation-mode: bicubic;
+    }
+
+    /* Body content styles */
+    .content {
+      padding: 35px 30px;
+      color: #1d1d1f;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    .content h2 {
+      margin: 0 0 20px;
+      font-size: 22px;
+      font-weight: 600;
+      line-height: 1.4;
+      color: #1d1d1f;
+    }
+    .content p { /* Возвращаем стили для параграфов */
+      margin: 0 0 12px;
+    }
+    .content strong {
+      font-weight: 600;
+      color: #1d1d1f;
+      margin-right: 5px;
+    }
+    .content a {
+      color: #007aff;
+      text-decoration: none;
+    }
+
+    /* Divider styles */
+    .divider {
+      border: none;
+      border-top: 1px solid #e5e5ea;
+      margin: 30px 0; /* Отступы вокруг разделителя */
+    }
+
+    /* Signature styles */
+    .signature p {
+      color: #6e6e73;
+      font-size: 15px;
+      line-height: 1.5;
+      margin: 0; /* Убраны все margin у p внутри signature */
+    }
+
+    /* Footer styles */
+    .footer {
+      padding: 20px 30px;
+      text-align: center;
+      font-size: 12px;
+      color: #86868b;
+      line-height: 1.4;
+    }
+
+    /* Dark Mode styles */
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: #000000;
+        color: #f5f5f7;
+      }
+      .container {
+        background-color: #1c1c1e;
+      }
+      .header-cell {
+         background-color: #1c1c1e;
+      }
+      .content,
+      .content h2,
+      .content p, /* Добавил стиль для <p> */
+      .content strong {
+        color: #f5f5f7 !important;
+      }
+      .content a {
+        color: #0a84ff !important;
+      }
+      .divider {
+        border-top-color: #3a3a3c;
+      }
+      .signature p {
+        color: #8e8e93;
+      }
+      .footer,
+      .footer a {
+        color: #8e8e93;
+      }
+    }
+
+    /* Outlook compatibility styles */
+    table { border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+    td, th { border-collapse: collapse; }
+    img { -ms-interpolation-mode: bicubic; }
+
+  </style>
+</head>
+<body>
+  <center>
+    <!-- Main wrapper table -->
+    <!-- Убрали padding отсюда -->
+    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color:#f2f2f7;">
+      <!-- ==================== SPACER ROW START ==================== -->
+      <!-- Эта строка создает отступ сверху -->
+      <tr>
+        <td style="height: 60px; line-height: 60px; font-size: 60px;"> </td>
+      </tr>
+      <!-- ==================== SPACER ROW END ==================== -->
+
+      <!-- Строка с основным контентом -->
+      <tr>
+        <td align="center">
+          <!-- Container table -->
+          <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="600" class="container">
+
+            <!-- Header -->
+            <tr>
+              <td class="header-cell" align="center">
+                <img
+                  src="https://cyberti.work/logo.png"
+                  width="600"
+                  height="160"
+                  style="display:block; max-width:600px; width:100%; height:auto; font-size:0; line-height:0; border:0; outline:none; text-decoration:none;"
+                  alt="CTI Logo"
+                />
+              </td>
+            </tr>
+
+            <!-- Body -->
+            <tr>
+              <td class="content">
+
+                <h2 style="margin: 0 0 20px; font-size: 22px; font-weight: 600; line-height: 1.4;">
+                  🚨 New Event: Keyword ‘{keyword}’ Detected
+                </h2>
+
+                <!-- Возвращаем простые параграфы без иконок -->
+                <p><strong>Victim:</strong> {victim}</p>
+                <p><strong>Link:</strong> <a href="{link}" style="color: #007aff; text-decoration: none;">{link}</a></p>
+                <p><strong>Date:</strong> {pub_date}</p>
+                <p><strong>Ransom Name:</strong> {ransom_name}</p>
+                <p><strong>Details:</strong> {cleaned_desc}</p>
+
+                <!-- Divider -->
+                <hr class="divider" style="border: none; border-top: 1px solid #e5e5ea; margin: 30px 0;">
+
+                <!-- Signature -->
+                <div class="signature">
+                  <p style="color: #6e6e73; font-size: 15px; line-height: 1.5; margin: 0;">
+                    Best regards,<br>
+                    Vasily Kononov
+                  </p>
+                </div>
+
+              </td>
+            </tr>
+
+          </table>
+          <!-- End Container table -->
+
+          <!-- Footer table -->
+          <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="600" style="max-width:600px; width:100%; margin: 0 auto;">
+             <tr>
+                <td class="footer">
+                   © 2025 CTI. All rights reserved.<br>
+                   This is an automated notification, please do not reply.
+                </td>
+             </tr>
+          </table>
+          <!-- End Footer table -->
+
+        </td>
+      </tr>
+       <!-- ==================== BOTTOM SPACER ROW START (Optional) ==================== -->
+       <!-- Эта строка создает отступ снизу -->
+       <tr>
+         <td style="height: 40px; line-height: 40px; font-size: 40px;"> </td>
+       </tr>
+       <!-- ==================== BOTTOM SPACER ROW END ==================== -->
+    </table>
+    <!-- End Main wrapper table -->
+  </center>
+</body>
+</html>
