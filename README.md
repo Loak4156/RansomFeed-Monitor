@@ -99,7 +99,4 @@ This tool helps CTI analysts and threat researchers stay alert to new ransomware
 
 ---
 
-## 😎 Author
-**Vasily Kononov**  
-Threat Intelligence Lead  
 
